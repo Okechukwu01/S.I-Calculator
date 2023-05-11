@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Okechukwu Ibeawuchi">
+    <meta name="description" content="Free simple interest calculator">
+    <meta name="keywords" content="Simple interest calculator, SI calculator, Simple interest, SI, Free simple interest calculator">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="1.png">
+    <title>NOVEE - Simple Interest Calculator</title>
+</head>
+<body>
+    <header>
+        <span id="si"></span>
+        <div class="head">
+            <h1 class="novee"><a href="index.html">NOVEE</a></h1>
+            <P class="moto"><em>...Brings you closer to your future.</em></P>
+        </div>
+        <strong class="openbtn" onclick="openNav()">&#9776</strong>
+        <div class="go"><a href="#cal">Go to calculate <strong>&#8595;</strong></a></div>
+    </header>
+    <div class="body">
+        <div class="sidebar" id="mySidebar">
+            <a class="closebtn" onclick="closeNav()" href="javascript:void(0)">&times;</a>
+            <ul class="site">Our Site:<ul>
+            <li class="bmi"><a href="https://okechukwu01.github.io/BMI-Calculator/" target="blank">BMI Calculator</a></li>
+        </div>
+        <h2 >Simple Interest (S.I) Calculator</h2>
+        <div class="content">
+            <h4 class="si">Simple Interest (S.I)</h4>
+            <p>Interest is what you pay to paid to a lender when you borrow money. Interest is also what a bank pays you when 
+                you put money in savings account. The interest rate is usually shown as a percentage. It is the cost you 
+                pay to borrow money or the compensation you receive for lending money. You might pay interest on an auto loan 
+                or credit card, or receive interest on cash deposits in interest-bearing accounts, like savings accounts or 
+                certificates of deposit (CDs).</p>
+            <p>Simple interest (SI) refers to the percentage of interest charged or yielded on the principal sum for a specific period. 
+                Borrowed funds (loans), investments, and deposits are considered the principal sum. It is only calculated on the initial 
+                sum (the "principal") borrowed or deposited. Generally, simple interest is set as a fixed percentage for the duration of 
+                a loan. No matter how often simple interest is calculated, it only applies to this original principal amount. In other 
+                words, future interest payments won't be affected by previously accrued interest.</p> 
+                <p>keywords: <br>
+                    * Simple interest is an interest calculation that does not include compounding interest. <br>
+                    * To calculate simple interest, multiply the principal amount by the interest rate and measurement period. <br>
+                    * Simple interest works best for making rough estimates, whereas compound interest is more exact. <br>
+                </p>
+                <img src="2.png" alt="img">
+                <p>To understand the calculations, let us first look at its formula: <br>
+                    Here, SI = Simple Interest,<br>
+                    * P= Principal Amount,<br>
+                    * R= Rate of Interest,<br>
+                    * T= Time (in years).<br>
+                </p>
+                <p>
+                    The elements of SI are explained below: <br>
+                    * Principal Amount: It is the sum borrowed, invested, or deposited. <br>
+                    * Rate of Interest: The percentage of interest charged from the borrower or offered to the depositor. It is often written as R/100.<br>
+                    * Time: The duration for which the SI is to be computed, denoted in years. Say, if the period is in months, then it is 
+                    represented as quarters or half-year. It is divided by 12, 4, or 2, respectively. <br>
+                </p>
+                <h4 id="cal">Calculator</h4>
+                <form class="calculator" onsubmit="return false" id="Calculator">
+                    <label for="principal">Principal (P): </label><br>
+                    <input type="number" step="any" id="principal" placeholder="Input the principal" required><br>
+                    <label for="rate">Rate (R):</label><br>
+                    <input type="number" step="any" id="rate" placeholder="Input the rate" required><br>
+                    <label for="time">Time (T):</label><br>
+                    <input type="number" step="any" id="time" placeholder="Input the Time (in years)" required><br>
+                    <button type="submit" class="btn" id="button" onclick="calculateSI()">Calculate</button>
+                </form>
+                
+            <p id="error"></p>
+            <p id="result"></p>
+        </div>
+        <div class="down"><a href="#si"><strong>&uarr;</strong> Back to top</a></div>
+    </div>
+    <footer>
+        <p>NOVEE: Copyright &copy; 2023</p>
+        <P>Created with &hearts; by Okechukwu</P>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "150px"
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0"
+        }
+
+        const calculateSI = ()=>{
+            document.getElementById("error").innerHTML=""
+            document.getElementById("result").innerHTML=""
+            const principal = Number(document.getElementById('principal').value);
+            const rate = Number(document.getElementById('rate').value);
+            const time = Number(document.getElementById('time').value);
+            const divide = rate / 100;
+            const calculate = document.getElementById('button');
+            
+            if (principal == null || principal == "" || rate == null || rate == "" || time == null || time == ""){
+                    error.innerHTML =`
+                    Please fill all fields with relivant correct information
+                `
+            }
+        
+            else{
+                
+                const output = principal * divide * time;
+                result.innerHTML =`
+                    Your Simple Interest (SI) is ${output.toFixed(2)}
+                `
+                principal.value ="";
+                divide.value ="";
+                time.value ="";
+            }
+                
+        }
+
+    </script>
+</body>
+</html>
